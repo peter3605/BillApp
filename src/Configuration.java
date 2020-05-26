@@ -26,10 +26,6 @@ public class Configuration extends java.util.Properties {
 
 
 	public Configuration(String building){
-		if(building.equals("1933StPaul"))
-			FTPServer = "73.128.40.28";
-		else 
-			FTPServer = "73.132.143.131";
 		FileInputStream in = null;
 		try {
 			in = new FileInputStream(new java.io.File("config.properties"));
@@ -52,22 +48,6 @@ public class Configuration extends java.util.Properties {
 			billTemplate = (billFolder + "\\bill_template.pdf");
 
 			System.out.println("Successfully read properties file");
-
-			if(FTPServer.equals("73.128.40.28")){
-				FTPDownloadPath += "1933StPaul";
-				billFolder += "1933StPaul\\";
-				reportFileFolder += "1933StPaul\\";
-				schemaName = "1933stpaul";
-				streetName = "1933 St.Paul Street";
-				endAddress = "Baltimore, MD 21218";
-			}else {
-				FTPDownloadPath += "510StPaul";
-				billFolder += "510StPaul\\";
-				reportFileFolder += "510StPaul\\";
-				schemaName = "510stpaul";
-				streetName = "510 St.Paul Place";
-				endAddress = "Baltimore, MD 21202";
-			}
 		}
 		catch (Exception e) {
 			System.out.println("Error loading configuration settings: " + e.getMessage());
